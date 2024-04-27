@@ -1,2 +1,2 @@
 # first
-By;tythbz lfyys[
+Учебный проект
