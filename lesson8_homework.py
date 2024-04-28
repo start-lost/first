@@ -15,7 +15,7 @@ class Human:
 class Rota:
     ima: list()
 
-    def __init__(self, im: list()):
+    def __init__(self, im: str):
         self.ima = im
     def add_men(self, name1: list()):
         self.ima = self.ima +name1
@@ -27,7 +27,7 @@ class Polk:
 
     def __init__(self, polk='First'):
         self.polk=polk
-    def add_rota(self, rota):
+    def add_rota(self, rota: str):
         self.polk =self.polk + rota
     def info_polk(self):
         for i in self.polk:
@@ -45,10 +45,8 @@ a3.set_loc('Sochi')
 
 
 
-r1 = Rota([a1])
-r1.add_men([a0])
-r1.info_rota()
-r2 = Rota([a2])
-r2.add_men([a3])
-r2.info_rota()
+r1 = Rota("Pervaiy")
+
+p1 = Polk("ROMA")
+p1.add_rota(r1)
 
