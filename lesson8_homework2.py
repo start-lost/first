@@ -59,5 +59,5 @@ class Nikola:
 a1 = Nikola('Николай', 43)
 a2 = Nikola('Вася', 56)
 print(a2.name)
-a2.surname = 'Николай'
-print(a2.surname)
+
+
