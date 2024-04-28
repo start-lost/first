@@ -1,0 +1,6 @@
+- host: 192.168.1.1
+  name: Igor
+  password: '123'
+  user_name: etl_user
+- password: '456'
+  user_name: test_user
