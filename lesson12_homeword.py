@@ -15,7 +15,7 @@ for i in a:
             "Valuta": result.get("Valute").get("USD").get('CharCode'),
             "Kurs": result.get("Valute").get("USD").get('Value')
         }]
-        result1 = result
+        result1 = result.copy()
     except AttributeError:
         spisok_valut = [{
             "Data": f'{i.year}-{i.month:02d}-{i.day:02d}',
