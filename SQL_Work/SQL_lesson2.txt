@@ -1,0 +1,42 @@
+CREATE TABLE d_specialisation(
+	id serial PRIMARY key,
+	specialisation varchar(100),
+	UNIQUE (specialisation)
+)
+
+CREATE TABLE d_doctors(
+	id int,
+	name varchar(50),
+	family_name varchar(50),
+	id_specialisation int,
+	begin_data timestamp default now(),
+	end_data timestamp default '2050-12-31'::date::timestamp,
+	sex bool DEFAULT '1',
+	work_begin_date date,
+	PRIMARY key(id, begin_data)
+
+)
+
+CREATE TABLE d_patient(
+	id int,
+	name varchar(50),
+	family_name varchar(50),
+	passport_number varchar(50),
+	sex bool,
+	birth_date date,
+	SNILS varchar(50),
+	begin_date timestamp DEFAULT now(),
+	end_date timestamp DEFAULT '2050-12-31'::date::timestamp,
+	PRIMARY key(id, begin_date)
+)
+
+CREATE TABLE f_appointment(
+	id serial PRIMARY KEY,
+	create_date date,
+	id_doctor int NOT NULL,
+	id_patient int NOT NULL,
+	diagnoz varchar(4000),
+	naznachenie varchar(4000),
+	cabinet_number varchar(10),
+	priem_time_minutes	int DEFAULT 15
+)
