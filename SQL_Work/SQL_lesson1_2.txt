@@ -1,0 +1,17 @@
+CREATE TABLE Vrachi(
+	PRIMARY KEY (id),
+	id serial,
+	name_vracha varchar(100),
+	familia_vracha varchar(100),
+	data_nachala_raboty date
+
+)
+
+SELECT *
+FROM vrachi
+limit(23)
+
+INSERT INTO vrachi (name_vracha, familia_vracha, data_nachala_raboty)
+VALUES ('Генадий', 'Авдеевич', '2001-04-17'),
+('Екатерина','Вельская','2020-08-11'),
+('Фатима','Изгиливна','2022-09-28')
