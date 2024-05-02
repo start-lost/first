@@ -1,0 +1,33 @@
+CREATE TABLE pacient(
+id serial,
+PRIMARY KEY(id),
+name_pacient varchar(100),
+familia_pacient varchar(100),
+data_obrashenia timestamp DEFAULT now(),
+data_ismenenia timestamp DEFAULT now(),
+bird_data date,
+bolezniy varchar(50)
+
+)
+
+SELECT *
+FROM pacient
+LIMIT 10
+
+INSERT INTO pacient(name_pacient, familia_pacient, bird_data, bolezniy)
+VALUES ('Вася', 'Иванов', '2001-09-21', 'ОРВИ')
+
+INSERT INTO pacient(name_pacient, familia_pacient, bird_data, bolezniy)
+VALUES ('Катя', 'Авдеева', '1990/03/28', 'Ветрянка')
+
+INSERT INTO pacient (name_pacient, familia_pacient, bird_data, bolezniy)
+VALUES ('Валерия', 'Смирнова', '1965-04-14', 'Ревматизм')
+
+INSERT INTO pacient (name_pacient, familia_pacient, bird_data, bolezniy)
+VALUES ('Сергей', 'Сусликов', '1993-11-16', 'Кариес')
+
+INSERT INTO pacient (name_pacient, familia_pacient, bird_data, bolezniy)
+VALUES ('Мелиса','Стуров','2004-09-29','ОРВИ'),
+('Света','Никитенко','2008-01-13','Грипп'),
+('Максим','Слагович','2009-05-15','Простуда'),
+('Андрей','Кобзарь','2001-01-01','Корь')
