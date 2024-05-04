@@ -1,0 +1,76 @@
+CREATE TABLE f_log(
+	id serial,
+	log_text varchar(200),
+	PRIMARY KEY(id)
+	);
+
+
+	SELECT *
+	FROM f_log
+
+	INSERT INTO f_log(log_text)
+	values('some text');
+
+INSERT INTO f_log(log_text)
+SELECT 'test text' AS log_text;
+
+
+INSERT INTO f_log (log_text)
+SELECT log_text
+FROM f_log
+WHERE log_text LIKE 'test%'
+
+-- обычный UNION использует DISTINCT и работает дольше
+SELECT 'some text v2' AS log_text
+UNION all
+SELECT 'some text v3' AS log_text
+UNION all
+SELECT 'some text v2' AS log_text
+
+--Удалить таблицу
+DROP TABLE mobil
+
+
+CREATE TABLE mobil (
+	id serial,
+	full_name varchar(50),
+	is_givoi boolean NOT NULL DEFAULT TRUE,
+	PRIMARY key(id)
+)
+
+CREATE TABLE gruz200(
+	id int NOT NULL,
+	full_name varchar(50),
+	PRIMARY key(id)
+)
+
+ INSERT INTO mobil (full_name)
+ 	SELECT 'Ivan Ivanov' AS full_name
+ 	UNION ALL
+ 	SELECT 'Petr Petrov' AS full_name
+;
+ SELECT *
+ FROM mobil
+
+SELECT *
+FROM f_log;
+
+SELECT DISTINCT  id, log_text
+FROM f_log
+ORDER BY id
+
+
+-- начало Транзакции
+BEGIN TRANSACTION;
+
+UPDATE mobil
+SET is_givoi = FALSE, full_name 'Maxim'
+WHERE id = 1;
+
+INSERT INTO gruz200(id, full_name)
+SELECT id, full_name
+FROM mobil
+WHERE is_givoi = FALSE;
+
+DELETE FROM mobil WHERE is_givoi = false;
+COMMIT transaction
