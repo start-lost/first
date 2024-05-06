@@ -1,0 +1,34 @@
+SELECT *
+FROM d_h1;
+
+SELECT *
+FROM d_ht
+
+INSERT INTO d_h1 (full_name, h_type)
+SELECT 'AXMED' AS full_name, 5 AS h_type;
+
+UPDATE d_h1 SET h_type = NULL WHERE id = 6
+
+
+
+INSERT INTO d_h1 (full_name, h_type)
+SELECT 'IVAN', 10
+
+UPDATE d_h1
+SET full_name = 'Иван' WHERE h_type = 10
+
+SELECT *
+FROM d_h1 dh
+WHERE id IN (1,3,4)
+LIMIT 100
+
+SELECT H.full_name, HT.type_name, HT.id
+FROM d_h1 H
+INNER JOIN d_ht HT ON
+	H.h_type = HT.id
+
+
+SELECT H.full_name, HT.type_name, H.h_type, COALESCE(HT.id, H.h_type, 0) AS id
+FROM d_h1 H
+LEFT JOIN d_ht HT ON
+	H.h_type = HT.id
